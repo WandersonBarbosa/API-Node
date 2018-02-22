@@ -1,11 +1,26 @@
 {
-  "name": "API-node",
+  "name": "api-node-mysql",
   "version": "1.0.0",
-  "description": "",
+  "description": "Criando  api  restfull  com node",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Wanderson barbosa Borges",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WandersonBarbosa/API-Node-mysql.git"
+  },
+  "author": "Wanderson Barbosa Borges",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WandersonBarbosa/API-Node-mysql/issues"
+  },
+  "homepage": "https://github.com/WandersonBarbosa/API-Node-mysql#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.2",
+    "sequelize": "^4.33.1"
+  }
 }
