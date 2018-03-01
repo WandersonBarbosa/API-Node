@@ -1,5 +1,6 @@
+const bcrypt = require('bcryptjs')
 module.exports = (sequelize, DataTypes)=>{
-    const Cliente = sequelize.define("User",{
+    const User = sequelize.define("User",{
         id: {
           type: DataTypes.INTEGER,
           primaryKey: true,
@@ -7,7 +8,7 @@ module.exports = (sequelize, DataTypes)=>{
         },
         nome: {
           type: DataTypes.STRING,
-          required:true
+          required: true
         },
         email:  {
             type: DataTypes.STRING,
@@ -17,9 +18,13 @@ module.exports = (sequelize, DataTypes)=>{
         },
         password:{
           type: DataTypes.STRING,
-          select:false
+          select: false
         }
     });
 
-    return Cliente;
+    User.beforeCreate(async user =>{
+      const hash = await bcrypt.hash(user.password , 10)
+      user.password = hash
+    });
+    return User;
 }
