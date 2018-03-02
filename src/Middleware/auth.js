@@ -13,12 +13,12 @@ module.exports = ( req , res , next)=>{
     if(!parts.length === 2)
         return  res.status(401).send({error: ' token error !'})
 
-    //const [ scheme , token ] = parts;
-    const [token ] = parts;
+     const [ scheme , token ] = parts;
+
     
-    /*if(!/^Bearer$/i.test(scheme))
+    if(!/^Bearer$/i.test(scheme))
         return  res.status(401).send({error: ' token malformattend !'})
-    */
+    
     jwt.verify(token, authconfig.secret,(err, decoded)=>{
         if(err)return  res.status(401).send({error: ' token ivalid !'})
 
